@@ -15,6 +15,8 @@ import argparse
 
 from celery.app import App, AppPickler, current_app as current_celery
 from celery.loaders import default as _default
+if not _default:
+    _default.DEFAULT_UNCONFIGURED_SETTINGS = {}
 from celery.utils import get_full_cls_name
 
 from werkzeug import cached_property
